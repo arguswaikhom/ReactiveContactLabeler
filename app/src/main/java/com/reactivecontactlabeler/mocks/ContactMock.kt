@@ -2,7 +2,7 @@ package com.reactivecontactlabeler.mocks
 
 import com.reactivecontactlabeler.models.Contact
 
-val mkContacts = listOf(
+val mkContacts = mutableListOf(
     Contact(
         "Marshall Salazar",
         "567-301-2279",
