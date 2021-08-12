@@ -1,4 +1,4 @@
-package com.reactivecontactlabeler.view
+package com.reactivecontactlabeler.views
 
 import android.view.LayoutInflater
 import android.view.View

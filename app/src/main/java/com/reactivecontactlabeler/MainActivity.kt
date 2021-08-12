@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import com.reactivecontactlabeler.databinding.ActivityMainBinding
 import com.reactivecontactlabeler.mocks.mkContacts
 import com.reactivecontactlabeler.models.Contact
-import com.reactivecontactlabeler.view.ContactAdapter
+import com.reactivecontactlabeler.views.ContactAdapter
 import com.reactivecontactlabeler.viewmodels.ContactListViewHolder
 
 class MainActivity : AppCompatActivity() {
