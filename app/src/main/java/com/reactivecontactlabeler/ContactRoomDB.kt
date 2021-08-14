@@ -7,14 +7,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.reactivecontactlabeler.data.daos.ContactDao
+import com.reactivecontactlabeler.data.daos.LabelDao
 import com.reactivecontactlabeler.models.Contact
+import com.reactivecontactlabeler.models.Label
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Contact::class], version = 1, exportSchema = false)
+@Database(entities = [Contact::class, Label::class], version = 1, exportSchema = false)
 abstract class ContactRoomDB : RoomDatabase() {
 
     abstract fun contactDao(): ContactDao
+    abstract fun labelDao(): LabelDao
 
     companion object {
         @Volatile
