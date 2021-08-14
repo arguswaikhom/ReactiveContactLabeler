@@ -3,11 +3,11 @@ package com.reactivecontactlabeler
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.reactivecontactlabeler.adapters.ContactAdapter
 import com.reactivecontactlabeler.databinding.ActivityMainBinding
 import com.reactivecontactlabeler.mocks.mkContacts
 import com.reactivecontactlabeler.viewmodels.ContactVMFactory
 import com.reactivecontactlabeler.viewmodels.ContactViewModel
-import com.reactivecontactlabeler.views.ContactAdapter
 
 class MainActivity : AppCompatActivity() {
     private val contactVM: ContactViewModel by viewModels {
