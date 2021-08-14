@@ -1,7 +1,7 @@
 package com.reactivecontactlabeler
 
 import android.app.Application
-import com.reactivecontactlabeler.repositories.ContactRepository
+import com.reactivecontactlabeler.data.repositories.ContactRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

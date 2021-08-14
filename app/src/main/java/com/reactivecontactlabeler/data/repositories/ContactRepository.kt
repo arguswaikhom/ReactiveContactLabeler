@@ -1,7 +1,7 @@
-package com.reactivecontactlabeler.repositories
+package com.reactivecontactlabeler.data.repositories
 
 import androidx.annotation.WorkerThread
-import com.reactivecontactlabeler.daos.ContactDao
+import com.reactivecontactlabeler.data.daos.ContactDao
 import com.reactivecontactlabeler.models.Contact
 import kotlinx.coroutines.flow.Flow
 

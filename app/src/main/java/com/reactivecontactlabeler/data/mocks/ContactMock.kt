@@ -1,4 +1,4 @@
-package com.reactivecontactlabeler.mocks
+package com.reactivecontactlabeler.data.mocks
 
 import com.reactivecontactlabeler.models.Contact
 

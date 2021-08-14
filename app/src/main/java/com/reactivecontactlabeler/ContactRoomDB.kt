@@ -1,11 +1,12 @@
 package com.reactivecontactlabeler
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.reactivecontactlabeler.daos.ContactDao
+import com.reactivecontactlabeler.data.daos.ContactDao
 import com.reactivecontactlabeler.models.Contact
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -37,6 +38,7 @@ abstract class ContactRoomDB : RoomDatabase() {
             super.onCreate(db)
             INSTANCE?.let { database ->
                 scope.launch {
+                    Log.d("db", "deletion")
                     database.contactDao().deleteAll()
                 }
             }

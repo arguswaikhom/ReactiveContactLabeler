@@ -1,8 +1,8 @@
 package com.reactivecontactlabeler.viewmodels
 
 import androidx.lifecycle.*
+import com.reactivecontactlabeler.data.repositories.ContactRepository
 import com.reactivecontactlabeler.models.Contact
-import com.reactivecontactlabeler.repositories.ContactRepository
 import kotlinx.coroutines.launch
 
 class ContactViewModel(private val contactRepository: ContactRepository) : ViewModel() {

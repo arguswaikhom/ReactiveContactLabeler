@@ -1,4 +1,4 @@
-package com.reactivecontactlabeler.daos
+package com.reactivecontactlabeler.data.daos
 
 import androidx.room.Dao
 import androidx.room.Insert
