@@ -11,7 +11,7 @@ import com.reactivecontactlabeler.models.Contact
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Contact::class], version = 1)
+@Database(entities = [Contact::class], version = 1, exportSchema = false)
 abstract class ContactRoomDB : RoomDatabase() {
 
     abstract fun contactDao(): ContactDao
