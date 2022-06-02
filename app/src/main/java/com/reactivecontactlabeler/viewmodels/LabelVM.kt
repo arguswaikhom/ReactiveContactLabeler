@@ -17,7 +17,7 @@ class LabelVM(private val labelRepository: LabelRepository) : ViewModel() {
 }
 
 class LabelVMFactory(private val repository: LabelRepository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(LabelVM::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return LabelVM(repository) as T
