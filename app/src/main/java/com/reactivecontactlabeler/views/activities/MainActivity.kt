@@ -29,16 +29,16 @@ class MainActivity : AppCompatActivity() {
         val contactAdapter = ListAdapter<Contact>()
         binding.recyclerView.adapter = contactAdapter
 
-        contactVM.contacts.observe(this, { contact ->
+        contactVM.contacts.observe(this) { contact ->
             contact?.let { contactAdapter.submitList(it) }
-        })
+        }
 
         binding.addContact.setOnClickListener {
             contactVM.insert(mkContacts[(0 until mkContacts.size - 1).random()])
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
