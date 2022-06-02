@@ -2,8 +2,10 @@ package com.reactivecontactlabeler.views.activities
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.Composable
 import com.reactivecontactlabeler.ContactApplication
 import com.reactivecontactlabeler.databinding.ActivityLabelBinding
 import com.reactivecontactlabeler.models.Label
@@ -23,7 +25,8 @@ class LabelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityLabelBinding = ActivityLabelBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // setContentView(binding.root)
+        setContent { Body() }
         supportActionBar?.title = "Labels"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -40,6 +43,12 @@ class LabelActivity : AppCompatActivity() {
             labelVM.insert(Label(newLabel))
             binding.newLabelEt.text.clear()
         }
+    }
+
+    @Composable
+    private fun Body() {
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
