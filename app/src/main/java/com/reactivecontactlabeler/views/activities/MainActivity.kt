@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -17,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.reactivecontactlabeler.ContactApplication
 import com.reactivecontactlabeler.R
 import com.reactivecontactlabeler.data.mocks.mkContacts
+import com.reactivecontactlabeler.models.Contact
 import com.reactivecontactlabeler.viewmodels.ContactVMFactory
 import com.reactivecontactlabeler.viewmodels.ContactViewModel
 import com.reactivecontactlabeler.views.components.ContactList
@@ -34,17 +36,30 @@ class MainActivity : AppCompatActivity() {
     @Composable
     fun Body() {
         val contacts by contactVM.contacts.observeAsState(emptyList())
+        Content(contacts = contacts)
+    }
 
+    @Composable
+    fun Content(contacts: List<Contact>) {
         Scaffold(
             topBar = {
-                TopAppBar(title = { Text(text = "Contacts") })
+                TopAppBar(
+                    title = { Text(text = "Contacts") },
+                    actions = {
+                        IconButton(onClick = {
+                            startActivity(Intent(this@MainActivity, LabelActivity::class.java))
+                        }) {
+                            Icon(Icons.Filled.Menu, "Menu")
+                        }
+                    }
+                )
             },
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = {
                         contactVM.insert(mkContacts[(0 until mkContacts.size - 1).random()])
                     },
-                ) { Icon(Icons.Filled.Add, "") }
+                ) { Icon(Icons.Filled.Add, "Add Contact") }
             }
         ) {
             ContactList(contacts = contacts)
@@ -53,8 +68,8 @@ class MainActivity : AppCompatActivity() {
 
     @Preview
     @Composable
-    fun ContactListPreview() {
-        ContactList(contacts = mkContacts)
+    fun ContentPreview() {
+        Content(contacts = mkContacts)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

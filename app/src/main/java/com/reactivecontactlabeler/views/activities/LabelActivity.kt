@@ -5,7 +5,17 @@ import android.view.MenuItem
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
 import com.reactivecontactlabeler.ContactApplication
 import com.reactivecontactlabeler.databinding.ActivityLabelBinding
 import com.reactivecontactlabeler.models.Label
@@ -47,8 +57,37 @@ class LabelActivity : AppCompatActivity() {
 
     @Composable
     private fun Body() {
+        var label by rememberSaveable { mutableStateOf("") }
+        Content(label = label, onUpdateLabel = { label = it })
+    }
 
+    @Composable
+    fun Content(label: String, onUpdateLabel: (String) -> Unit) {
+        Scaffold(
+            topBar = {
+                TopAppBar(title = { Text(text = "Label") })
+            },
+            bottomBar = {
+                Row {
+                    TextField(
+                        value = label,
+                        onValueChange = onUpdateLabel
+                    )
+                }
+            }
+        ) {
+            LabelList()
+        }
+    }
 
+    @Composable
+    private fun LabelList() {
+    }
+
+    @Preview
+    @Composable
+    fun ContentPreview() {
+        Content(label = "Boiling Water!!", onUpdateLabel = {})
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
